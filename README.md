@@ -1,103 +1,134 @@
-# Jacman
+# Lanyon
 
-[中文说明](/README_zh.md)
+Lanyon is an unassuming [Jekyll](http://jekyllrb.com) theme that places content first by tucking away navigation in a hidden drawer. It's based on [Poole](http://getpoole.com), the Jekyll butler.
 
-Jacman is a fresh looking and responsive theme for [Hexo](http://hexo.io) with more features and some build-in Chinese service based on [Pacman](https://github.com/A-limon/pacman).  
+![Lanyon](https://f.cloud.github.com/assets/98681/1825266/be03f014-71b0-11e3-9539-876e61530e24.png)
+![Lanyon with open sidebar](https://f.cloud.github.com/assets/98681/1825267/be04a914-71b0-11e3-966f-8afe9894c729.png)
 
-**Jacman support Hexo 3.0 now !**
 
-[Demo](http://wuchong.me/jacman) | [Jark's Blog](http://wuchong.me)
+## Contents
 
-[如何使用 Jacman 主题](http://wuchong.me/blog/2014/11/20/how-to-use-jacman/)
+- [Usage](#usage)
+- [Options](#options)
+  - [Sidebar menu](#sidebar-menu)
+  - [Themes](#themes)
+  - [Reverse layout](#reverse-layout)
+- [Development](#development)
+- [Author](#author)
+- [License](#license)
 
-##Installation
-###Install
+
+## Usage
+
+Lanyon is a theme built on top of [Poole](https://github.com/poole/poole), which provides a fully furnished Jekyll setup—just download and start the Jekyll server. See [the Poole usage guidelines](https://github.com/poole/poole#usage) for how to install and use Jekyll.
+
+
+## Options
+
+Lanyon includes some customizable options, typically applied via classes on the `<body>` element.
+
+
+### Sidebar menu
+
+Create a list of nav links in the sidebar by assigning each Jekyll page the correct layout in the page's [front-matter](http://jekyllrb.com/docs/frontmatter/).
+
 ```
-$ git clone https://github.com/wuchong/jacman.git themes/jacman
+---
+layout: page
+title: About
+---
 ```
-**Jacman requires Hexo 2.7 and above.** 
-###Enable
-Modify `theme` setting in blog folder` _config.yml` to `jacman`.
-###Update
+
+**Why require a specific layout?** Jekyll will return *all* pages, including the `atom.xml`, and with an alphabetical sort order. To ensure the first link is *Home*, we exclude the `index.html` page from this list by specifying the `page` layout.
+
+
+### Themes
+
+Lanyon ships with eight optional themes based on the [base16 color scheme](https://github.com/chriskempson/base16). Apply a theme to change the color scheme (mostly applies to sidebar and links).
+
+![Lanyon with red theme](https://f.cloud.github.com/assets/98681/1825270/be065110-71b0-11e3-9ed8-9b8de753a4af.png)
+![Lanyon with red theme and open sidebar](https://f.cloud.github.com/assets/98681/1825269/be05ec20-71b0-11e3-91ea-a9138ef07186.png)
+
+There are eight themes available at this time.
+
+![Available theme classes](https://f.cloud.github.com/assets/98681/1817044/e5b0ec06-6f68-11e3-83d7-acd1942797a1.png)
+
+To use a theme, add any one of the available theme classes to the `<body>` element in the `default.html` layout, like so:
+
+```html
+<body class="theme-base-08">
+  ...
+</body>
 ```
-cd themes/jacman
-git pull origin master
+
+To create your own theme, look to the Themes section of [included CSS file](https://github.com/poole/lanyon/blob/master/public/css/lanyon.css). Copy any existing theme (they're only a few lines of CSS), rename it, and change the provided colors.
+
+
+### Reverse layout
+
+![Lanyon with reverse layout](https://f.cloud.github.com/assets/98681/1825265/be03f2e4-71b0-11e3-89f1-360705524495.png)
+![Lanyon with reverse layout and open sidebar](https://f.cloud.github.com/assets/98681/1825268/be056174-71b0-11e3-88c8-5055bca4307f.png)
+
+Reverse the page orientation with a single class.
+
+```html
+<body class="layout-reverse">
+  ...
+</body>
 ```
-**please backup your `_config.yml` file before update.** 
 
-##Configuration
 
-Modify settings in  `/themes/jacman/_config.yml`. [Learn More](https://github.com/wuchong/jacman/wiki/%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97).
+### Sidebar overlay instead of push
 
-##Features
-- **menu**  
- Main navigation menu.
-- **widget**  
- Widgets displaying in sidebar.The category,tag,rss,archive,tagcloud,links,weibo are supported.
-- **Image**  
- Images about favicon, site logo, author image, banner image. Support different image styles like `img-logo`,`img-topic`,`img-center` etc.
-- **index**  
- Two different home page display modes.You can visit [Demo](http://wuchong.me/jacman) & [Jark's Blog](http://wuchong.me) to check the difference.
-- **author**  
- Author imformation, used to show your social network links on the bottom right. Including github, stackoverflow, twitter, facebook, linkedin, google+, weibo, douban, zhihu, email.
-- **toc**  
- Show Table Of Contents in article & aside.
-- **comments**  
- [duoshuo](http://duoshuo.com/) & [disqus](https://disqus.com/) are supported.
-- **jiathis**  
- Build-in share tool or [JiaThis](http://www.jiathis.com/) share buttons at the bottom of articles.
-- **Analytiscs**  
- [Google analytics](http://www.google.com/analytics/) & [Baidu tongji](http://tongji.baidu.com/) & [CNZZ tongji](http://www.cnzz.com/) are all supported.
-- **Search**  
- [Googlle Custom Search](https://www.google.com/cse/ ) & [Baidu Site Search](http://zn.baidu.com/) & [Tiny Search](http://tinysou.com/) are supported.
-- **totop**  
- Scroll to top
-- **rss**  
- RSS subscription link (change if using Feedburner).
-- **fancybox**  
- Enable [Fancybox](http://fancyapps.com/fancybox/)
-- **custom theme color**
- Mondify theme color in `_config.yaml` instead of finding unfamiliar stylus files.
-- **others**
- You can configure sidebar not show in post pages.
+Make the sidebar overlap the viewport content with a single class:
 
-You can learn how to use them from [Configuration](https://github.com/wuchong/jacman/wiki/配置指南).
+```html
+<body class="sidebar-overlay">
+  ...
+</body>
+```
 
-##Sites
-- [Jacman Theme](http://wuchong.me/jacman) - The demo site of Jacman Theme
-- [Jark's Blog](http://wuchong.me) - The author's blog of Jacman
-- [阿杜个人博客](http://ralphadu.com) - 阿杜个人博客
-- [PhiloSky's Blog](http://philosky.ml/) - Personal blog
-- [hiluSdream](http://hiluluke.cn) - 梦想是无所谓无的，无所谓有的
-- [Melface](http://melface.tk) - Personal blog
-- [heamon7's Utopia](http://heamon7.com) - 修行绝尘，悟道涉俗
-- [PegasusWang's Blog](http://ningning.today) - 你的问题主要在于读书不多而想得太多
-- [青劲草](http://www.caoqq.net) - 学会记录成长点滴
-- [Vigorass](http://cscao.com) - Learn to record dripping growth
-- [MoqiZhan](http://moqizhan.com) - 人生就是不停的战斗
-- [Think Differently](http://think-diff.me/) - If You Can Think Differently, You Can Act Differently.
-- [ylf](http://wangyangyang.gitcafe.com) - 王洋洋
-- [Gevin's blog](http://blog.igevin.info/) - Stay hungry, stay foolish; Stop when you are perfect.
-- [keychar](http://keychar.com) - A technology blog, design & programming.
-- [peng的博客](http://chenpengdsp.com) - 人生就是不停的战斗
-- [More and More](http://aeesky.github.io) -刚起步：）
-- [好久不见](http://dpast.org) - Julian Zhu
-- [keke2014's blog](http://jukezhang.com/) - Stay hungry, stay foolish - Steve Jobs
-- [Eurry](http://www.eurry.net) - Eurry's Blog.
-- [sencle's blog](http://isencle.com) -just do it
-- [Oxymoron's Blog](http://ioxymoron.me) - Let's start from here.
-- [HelloDog](http://wsgzao.github.io) - Keep Clam and Carry On
-- [屠城｜屠夫9441的博客](http://haomwei.com) - 苟全性命于乱世，不求闻达于诸侯。
-- [Ice He. 何志遠](http://icehe.github.io/) - Less is more. 寧靜致遠。
-- [prokitty，侏罗纪公园](http://www.prokitty.com) -Belive yourself,belive Cherry.
-- [Ceclinux](http://ceclinux.org) - Arch is the best
-- [BruceGe's blog](http://brucege.com) - Start Blogging
-- [Yangxiaolei's blog](http://yangxiaolei.me) - 让知识成为信仰，让优秀成为习惯
-- [CC's blog](http://ccloveyou.org) - CC
-- [TadGuo's pages](http://watermeion.github.io) - More is different.
-- [Mutse's blog](http://mutse.github.io) - Love Life, Love open source
+This will keep the content stationary and slide in the sidebar over the side content. It also adds a `box-shadow` based outline to the toggle for contrast against backgrounds, as well as a `box-shadow` on the sidebar for depth.
 
-If you are using Jacman,you can add your site [here](https://github.com/wuchong/jacman/wiki/Sites) ! I'll push the available sites here.
+It's also available for a reversed layout when you add both classes:
 
-##License
-[MIT](/LICENSE)
+```html
+<body class="layout-reverse sidebar-overlay">
+  ...
+</body>
+```
+
+### Sidebar open on page load
+
+Show an open sidebar on page load by modifying the `<input>` to add the `checked` boolean attribute:
+
+```html
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox" checked>
+```
+
+Using Liquid you can also conditionally show the sidebar open on a per-page basis. For example, here's how you could have it open on the homepage only:
+
+```html
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox" {% if page.title =="Home" %}checked{% endif %}>
+```
+
+## Development
+
+Lanyon has two branches, but only one is used for active development.
+
+- `master` for development.  **All pull requests should be to submitted against `master`.**
+- `gh-pages` for our hosted site, which includes our analytics tracking code. **Please avoid using this branch.**
+
+
+## Author
+
+**Mark Otto**
+- <https://github.com/mdo>
+- <https://twitter.com/mdo>
+
+
+## License
+
+Open sourced under the [MIT license](LICENSE.md).
+
+<3
