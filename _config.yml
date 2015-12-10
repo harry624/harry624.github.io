@@ -5,9 +5,9 @@ permalink:           pretty
 relative_permalinks: true
 
 # Setup
-title:               Harry
+title:               Harry      
 tagline:             '一个正在修行的iOS开发者'
-description:         'A reserved <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that places the utmost gravity on content with a hidden drawer. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
+description:         '记录iOS学习进程中的收获'
 url:                 https://github.com/harry624
 baseurl:             ''
 paginate:            5
