@@ -1,22 +1,26 @@
+# Dependencies
+markdown:         redcarpet
+highlighter:      pygments
+
 # Permalinks
-#
-# Use of `relative_permalinks` ensures post links from the index work properly.
-permalink:           pretty
+permalink:        pretty
 relative_permalinks: true
 
 # Setup
-title:               Harry      
-tagline:             '一个正在修行的iOS开发者'
-description:         '记录iOS学习进程中的收获'
-url:                 https://github.com/harry624
-baseurl:             ''
-paginate:            5
+title:            Hyde
+tagline:          'A Jekyll theme'
+description:      'A brazen two-column <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that pairs a prominent sidebar with uncomplicated content. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
+url:              http://hyde.getpoole.com
+baseurl:          /
 
-# About/contact
 author:
-  name:              Harry Wang
-  url:               https://harry624.github.io
-  email:             harrywang624@gmail.com
+  name:           'Mark Otto'
+  url:            https://twitter.com/mdo
+
+paginate:         5
 
 # Custom vars
-version:             1.0.0
+version:          2.1.0
+
+github:
+  repo:           https://github.com/poole/hyde
